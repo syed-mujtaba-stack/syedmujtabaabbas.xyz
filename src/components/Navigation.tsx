@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Menu, X, ArrowUpRight, Command, FileText, Gift } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Command, FileText, Gift, Bot } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
 const NAV_ITEMS = [
@@ -17,12 +17,14 @@ interface NavigationProps {
   onOpenCommandPalette?: () => void;
   onOpenDossier?: () => void;
   onOpenOffersPopup?: () => void;
+  onOpenCopilot?: () => void;
 }
 
 export const Navigation: React.FC<NavigationProps> = ({
   onOpenCommandPalette,
   onOpenDossier,
   onOpenOffersPopup,
+  onOpenCopilot,
 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -219,6 +221,34 @@ export const Navigation: React.FC<NavigationProps> = ({
                   className="rounded-lg border border-white/15 bg-[#141418] py-2.5 text-xs font-medium text-white cursor-pointer"
                 >
                   Quick Search (⌘K)
+                </button>
+              )}
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              {onOpenOffersPopup && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenOffersPopup();
+                  }}
+                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-emerald-500/25 bg-emerald-500/10 py-2.5 text-xs font-medium text-emerald-200 cursor-pointer"
+                >
+                  <Gift className="h-3.5 w-3.5" />
+                  Special Offers
+                </button>
+              )}
+              {onOpenCopilot && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenCopilot();
+                  }}
+                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/15 bg-[#141418] py-2.5 text-xs font-medium text-white cursor-pointer"
+                >
+                  <Bot className="h-3.5 w-3.5" />
+                  Ask Mujtaba AI
                 </button>
               )}
             </div>

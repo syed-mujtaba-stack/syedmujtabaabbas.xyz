@@ -85,6 +85,7 @@ function createSpeechRecognition(): SpeechRecognitionInstance | null {
 }
 
 interface MujtabaAICopilotProps {
+  openRequest?: number;
   onSelectProject: (project: PortfolioProject) => void;
   onOpenAllProjects: () => void;
   onOpenOffersPopup?: () => void;
@@ -92,6 +93,7 @@ interface MujtabaAICopilotProps {
 }
 
 export const MujtabaAICopilot: React.FC<MujtabaAICopilotProps> = ({
+  openRequest = 0,
   onSelectProject,
   onOpenAllProjects,
   onOpenOffersPopup,
@@ -147,6 +149,13 @@ export const MujtabaAICopilot: React.FC<MujtabaAICopilotProps> = ({
         "Assalam o Alaikum! I'm Syed Mujtaba Abbas's real OpenRouter AI Agent. How can I help you today?",
     },
   ]);
+
+  useEffect(() => {
+    if (openRequest > 0) {
+      setOpen(true);
+      setActiveTab('chat');
+    }
+  }, [openRequest]);
 
   useEffect(() => {
     callActiveRef.current = callActive;
@@ -476,7 +485,7 @@ export const MujtabaAICopilot: React.FC<MujtabaAICopilotProps> = ({
   return (
     <div className="fixed bottom-4 right-4 z-[90] sm:bottom-5 sm:right-5">
       {!open ? (
-        <div className="flex items-center gap-2 max-[390px]:gap-1.5">
+        <div className="hidden items-center gap-2 max-[390px]:gap-1.5 md:flex">
           {/* Direct 1-Click Realtime Voice Call Launcher */}
           <button
             type="button"

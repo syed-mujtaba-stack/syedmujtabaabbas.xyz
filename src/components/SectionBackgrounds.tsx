@@ -134,10 +134,10 @@ function useSectionCanvas(
  */
 export const HeroLiquidWaveBg: React.FC = () => {
   const starsRef = useRef(
-    Array.from({ length: 65 }, () => ({
+    Array.from({ length: 150 }, () => ({
       nx: Math.random(),
       ny: Math.random(),
-      r: 0.8 + Math.random() * 2.2,
+      r: 1.2 + Math.random() * 2.4,
       speed: 0.015 + Math.random() * 0.035,
       phase: Math.random() * Math.PI * 2,
     }))
@@ -160,7 +160,7 @@ export const HeroLiquidWaveBg: React.FC = () => {
 
       ctx.beginPath();
       ctx.arc(x, y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(244, 244, 245, ${0.22 * pulse})`;
+      ctx.fillStyle = `rgba(244, 244, 245, ${0.32 * pulse})`;
       ctx.fill();
     }
 
@@ -213,21 +213,27 @@ export const HeroLiquidWaveBg: React.FC = () => {
  */
 export const AboutConstellationBg: React.FC = () => {
   const nodesRef = useRef(
-    Array.from({ length: 68 }, () => ({
+    Array.from({ length: 200 }, () => ({
       nx: Math.random(),
       ny: Math.random(),
-      vx: (Math.random() - 0.5) * 0.00045,
-      vy: (Math.random() - 0.5) * 0.00045,
-      r: 1.5 + Math.random() * 2,
+      vx: (Math.random() - 0.5) * 0.0005,
+      vy: (Math.random() - 0.5) * 0.0005,
+      r: 2 + Math.random() * 2.8,
       phase: Math.random() * Math.PI * 2,
     }))
   );
+  const lastTimeRef = useRef<number | null>(null);
 
   const canvasRef = useSectionCanvas((ctx, width, height, t, mouse) => {
     const nodes = nodesRef.current;
+    const deltaFrames = lastTimeRef.current === null
+      ? 0
+      : Math.min(t - lastTimeRef.current, 0.05) * 60;
+    lastTimeRef.current = t;
+
     const pts = nodes.map((n) => {
-      n.nx += n.vx;
-      n.ny += n.vy;
+      n.nx += n.vx * deltaFrames;
+      n.ny += n.vy * deltaFrames;
       if (n.nx < 0.02 || n.nx > 0.98) n.vx *= -1;
       if (n.ny < 0.02 || n.ny > 0.98) n.vy *= -1;
 
@@ -238,8 +244,8 @@ export const AboutConstellationBg: React.FC = () => {
       const dx = mouse.x - x;
       const dy = mouse.y - y;
       const d = Math.sqrt(dx * dx + dy * dy);
-      if (d < 260 && d > 1) {
-        const pull = (1 - d / 260) * 18;
+      if (mouse.active && d < 280 && d > 1) {
+        const pull = (1 - d / 280) * 22;
         x += (dx / d) * pull;
         y += (dy / d) * pull;
       }
@@ -248,33 +254,53 @@ export const AboutConstellationBg: React.FC = () => {
     });
 
     // Draw constellation links + traveling pulse sparks
-    const maxDist = 175;
+    const maxDist = 195;
+    const cells = new Map<string, number[]>();
+    const cellCoordinates = pts.map((point, index) => {
+      const col = Math.floor(point.x / maxDist);
+      const row = Math.floor(point.y / maxDist);
+      const key = `${col}:${row}`;
+      const cell = cells.get(key);
+      if (cell) cell.push(index);
+      else cells.set(key, [index]);
+      return { col, row };
+    });
+
     for (let i = 0; i < pts.length; i++) {
       const a = pts[i];
-      for (let j = i + 1; j < pts.length; j++) {
-        const b = pts[j];
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-        const d = Math.sqrt(dx * dx + dy * dy);
+      const { col, row } = cellCoordinates[i];
+      for (let rowOffset = -1; rowOffset <= 1; rowOffset++) {
+        for (let colOffset = -1; colOffset <= 1; colOffset++) {
+          const neighbors = cells.get(`${col + colOffset}:${row + rowOffset}`);
+          if (!neighbors) continue;
 
-        if (d < maxDist) {
-          const proximity = 1 - d / maxDist;
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.strokeStyle = `rgba(212, 212, 216, ${proximity * 0.26})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
+          for (const j of neighbors) {
+            if (j <= i) continue;
+            const b = pts[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const distanceSquared = dx * dx + dy * dy;
+            if (distanceSquared >= maxDist * maxDist) continue;
 
-          // Traveling spark along every 7th active edge
-          if ((i + j) % 7 === 0 && proximity > 0.35) {
-            const p = (t * 0.65 + (i * 0.17)) % 1;
-            const sx = a.x + (b.x - a.x) * p;
-            const sy = a.y + (b.y - a.y) * p;
+            const distance = Math.sqrt(distanceSquared);
+            const proximity = 1 - distance / maxDist;
+            const pulse = 0.62 + 0.38 * Math.sin(t * 1.7 + a.phase + b.phase);
             ctx.beginPath();
-            ctx.arc(sx, sy, 2.2, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255, 255, 255, ${proximity * 0.85})`;
-            ctx.fill();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = `rgba(212, 212, 216, ${proximity * (0.26 + pulse * 0.24)})`;
+            ctx.lineWidth = 0.8 + pulse * 0.45;
+            ctx.stroke();
+
+            if ((i + j) % 4 === 0 && proximity > 0.24) {
+              const p = (t * 0.65 + (i * 0.17)) % 1;
+              const sx = a.x + (b.x - a.x) * p;
+              const sy = a.y + (b.y - a.y) * p;
+              ctx.beginPath();
+              ctx.arc(sx, sy, 2.5, 0, Math.PI * 2);
+              ctx.fillStyle = `rgba(255, 255, 255, ${proximity * (0.65 + pulse * 0.35)})`;
+              ctx.fill();
+            }
           }
         }
       }
@@ -282,15 +308,15 @@ export const AboutConstellationBg: React.FC = () => {
 
     // Draw glowing nodes
     for (const p of pts) {
-      const glow = 0.55 + 0.45 * Math.sin(t * 2 + p.phase);
+      const glow = 0.58 + 0.42 * Math.sin(t * 2.4 + p.phase);
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r * 2.8, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 255, 255, ${0.07 * glow})`;
+      ctx.fillStyle = `rgba(255, 255, 255, ${0.1 * glow})`;
       ctx.fill();
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(244, 244, 245, ${0.55 * glow})`;
+      ctx.fillStyle = `rgba(244, 244, 245, ${0.7 * glow})`;
       ctx.fill();
     }
   });
@@ -311,12 +337,13 @@ export const AboutConstellationBg: React.FC = () => {
  */
 export const SkillsGyroRingsBg: React.FC = () => {
   const embersRef = useRef(
-    Array.from({ length: 55 }, () => ({
+    Array.from({ length: 400 }, () => ({
       nx: Math.random(),
       ny: Math.random(),
       speed: 0.03 + Math.random() * 0.06,
-      len: 8 + Math.random() * 18,
-      alpha: 0.15 + Math.random() * 0.35,
+      len: 12 + Math.random() * 24,
+      alpha: 0.35 + Math.random() * 0.4,
+      phase: Math.random() * Math.PI * 2,
     }))
   );
 
@@ -377,16 +404,20 @@ export const SkillsGyroRingsBg: React.FC = () => {
     for (const e of embersRef.current) {
       const x = e.nx * width;
       const y = ((e.ny * height - t * e.speed * height * 2) % height + height) % height;
+      const pulse = 0.8 + 0.2 * Math.sin(t * 1.8 + e.phase);
 
-      const grad = ctx.createLinearGradient(x, y, x, y + e.len);
-      grad.addColorStop(0, `rgba(255, 255, 255, ${e.alpha})`);
-      grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
-      ctx.strokeStyle = grad;
-      ctx.lineWidth = 1.3;
+      ctx.strokeStyle = `rgba(228, 228, 231, ${e.alpha * pulse * 0.58})`;
+      ctx.lineWidth = 1.4;
+      ctx.lineCap = 'round';
       ctx.beginPath();
       ctx.moveTo(x, y);
       ctx.lineTo(x, y + e.len);
       ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(x, y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${e.alpha * pulse})`;
+      ctx.fill();
     }
   });
 

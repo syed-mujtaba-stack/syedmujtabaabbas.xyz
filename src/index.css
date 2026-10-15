@@ -297,6 +297,19 @@
   }
 }
 
+@media (max-width: 639px) {
+  main > section:not(#home) {
+    padding-block: 4rem;
+    scroll-margin-top: 5rem;
+  }
+
+  main > section#home {
+    min-height: auto;
+    padding-top: 7rem;
+    padding-bottom: 4rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .portfolio-loader,
   .portfolio-loader__center,

@@ -30,6 +30,7 @@ export function App() {
     undefined
   );
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
+  const [copilotOpenRequest, setCopilotOpenRequest] = useState(0);
   const [dossierOpen, setDossierOpen] = useState(false);
   const [offersPopupOpen, setOffersPopupOpen] = useState(false);
   const [externalProjectForCaseStudy, setExternalProjectForCaseStudy] =
@@ -149,7 +150,7 @@ export function App() {
   }, [showAllProjectsPage]);
 
   const floatingOffersTrigger = !offersPopupOpen && (
-    <div className="fixed bottom-[5.25rem] left-4 z-[84] sm:bottom-5 sm:left-5">
+    <div className="fixed bottom-[5.25rem] left-4 z-[84] hidden sm:block sm:bottom-5 sm:left-5">
       <button
         type="button"
         onClick={() => setOffersPopupOpen(true)}
@@ -209,6 +210,7 @@ export function App() {
         onOpenCommandPalette={() => setCommandPaletteOpen(true)}
         onOpenDossier={() => setDossierOpen(true)}
         onOpenOffersPopup={() => setOffersPopupOpen(true)}
+        onOpenCopilot={() => setCopilotOpenRequest((request) => request + 1)}
       />
 
       <CommandPalette
@@ -261,6 +263,7 @@ export function App() {
       {floatingOffersTrigger}
 
       <MujtabaAICopilot
+        openRequest={copilotOpenRequest}
         onSelectProject={handleSelectProjectAnywhere}
         onOpenAllProjects={openAllProjects}
         onOpenOffersPopup={() => setOffersPopupOpen(true)}
