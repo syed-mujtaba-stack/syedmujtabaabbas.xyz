@@ -474,22 +474,23 @@ export const MujtabaAICopilot: React.FC<MujtabaAICopilotProps> = ({
   };
 
   return (
-    <div className="fixed bottom-5 right-5 z-[90]">
+    <div className="fixed bottom-4 right-4 z-[90] sm:bottom-5 sm:right-5">
       {!open ? (
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 max-[390px]:gap-1.5">
           {/* Direct 1-Click Realtime Voice Call Launcher */}
           <button
             type="button"
             onClick={startRealtimeCall}
             title="Start a Realtime Voice Call with Mujtaba's AI Agent"
-            className="group flex items-center gap-2 rounded-full border border-emerald-500/40 bg-[#0D1311]/95 px-4 py-2.5 text-xs font-semibold text-emerald-300 shadow-[0_16px_40px_rgba(0,0,0,0.85)] backdrop-blur-xl hover:border-emerald-400 hover:bg-emerald-500/15 transition-all cursor-pointer"
+            aria-label="Start a Realtime Voice Call with Mujtaba's AI Agent"
+            className="group flex items-center gap-2 rounded-full border border-emerald-500/40 bg-[#0D1311]/95 px-4 py-2.5 text-xs font-semibold text-emerald-300 shadow-[0_16px_40px_rgba(0,0,0,0.85)] backdrop-blur-xl hover:border-emerald-400 hover:bg-emerald-500/15 transition-all cursor-pointer max-[390px]:gap-1.5 max-[390px]:px-3"
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
             </span>
             <PhoneCall className="h-3.5 w-3.5 text-emerald-400" />
-            <span>Live AI Call</span>
+            <span className="max-[390px]:hidden">Live AI Call</span>
           </button>
 
           {/* Text + Voice Copilot Launcher */}
@@ -499,10 +500,12 @@ export const MujtabaAICopilot: React.FC<MujtabaAICopilotProps> = ({
               setOpen(true);
               setActiveTab('chat');
             }}
-            className="group flex items-center gap-2.5 rounded-full border border-white/20 bg-[#0E0E12]/95 px-4 py-2.5 text-xs font-semibold text-white shadow-[0_16px_40px_rgba(0,0,0,0.85)] backdrop-blur-xl hover:border-white/45 hover:bg-[#16161D] transition-all cursor-pointer"
+            title="Open Mujtaba AI"
+            aria-label="Open Mujtaba AI"
+            className="group flex items-center gap-2.5 rounded-full border border-white/20 bg-[#0E0E12]/95 px-4 py-2.5 text-xs font-semibold text-white shadow-[0_16px_40px_rgba(0,0,0,0.85)] backdrop-blur-xl hover:border-white/45 hover:bg-[#16161D] transition-all cursor-pointer max-[390px]:gap-1.5 max-[390px]:px-3"
           >
             <Bot className="h-4 w-4 text-zinc-200" />
-            <span>Ask Mujtaba AI</span>
+            <span className="max-[390px]:hidden">Ask Mujtaba AI</span>
             <span className="hidden sm:inline rounded border border-white/10 bg-white/5 px-1.5 py-0.5 font-mono-tech text-[10px] text-zinc-400">
               ⌘J
             </span>

@@ -149,7 +149,7 @@ export function App() {
   }, [showAllProjectsPage]);
 
   const floatingOffersTrigger = !offersPopupOpen && (
-    <div className="fixed bottom-5 left-5 z-[84]">
+    <div className="fixed bottom-[5.25rem] left-4 z-[84] sm:bottom-5 sm:left-5">
       <button
         type="button"
         onClick={() => setOffersPopupOpen(true)}
@@ -157,7 +157,7 @@ export function App() {
       >
         <Gift className="h-4 w-4 text-emerald-400" />
         <span>Special Offers</span>
-        <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 font-mono-tech text-[10px] font-bold text-emerald-300">
+        <span className="hidden rounded-full bg-emerald-500/20 px-2 py-0.5 font-mono-tech text-[10px] font-bold text-emerald-300 min-[420px]:inline-flex">
           From $69
         </span>
       </button>

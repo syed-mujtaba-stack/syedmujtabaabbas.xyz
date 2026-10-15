@@ -14,6 +14,8 @@ function useSectionCanvas(
   ) => void
 ) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const drawRef = useRef(draw);
+  drawRef.current = draw;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -26,7 +28,7 @@ function useSectionCanvas(
 
     let width = parent.clientWidth || window.innerWidth;
     let height = parent.clientHeight || window.innerHeight;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = Math.min(window.devicePixelRatio || 1, window.innerWidth < 768 ? 1.25 : 2);
 
     const updateSize = () => {
       if (!canvas.parentElement) return;
@@ -68,29 +70,59 @@ function useSectionCanvas(
 
     window.addEventListener('pointermove', onPointerMove, { passive: true });
 
-    let rafId: number;
+    let rafId = 0;
+    let isVisible = false;
     const startTime = performance.now();
 
     const loop = (now: number) => {
-      rafId = requestAnimationFrame(loop);
+      rafId = 0;
+      if (!isVisible || document.hidden) return;
+
       const elapsed = (now - startTime) * 0.001;
 
-      // Buttery smooth mouse interpolation
       mouse.x += (mouse.tx - mouse.x) * 0.07;
       mouse.y += (mouse.ty - mouse.y) * 0.07;
 
       ctx.clearRect(0, 0, width, height);
-      draw(ctx, width, height, elapsed, mouse);
+      drawRef.current(ctx, width, height, elapsed, mouse);
+      rafId = requestAnimationFrame(loop);
     };
 
-    rafId = requestAnimationFrame(loop);
+    const startLoop = () => {
+      if (isVisible && !document.hidden && rafId === 0) {
+        rafId = requestAnimationFrame(loop);
+      }
+    };
+
+    const stopLoop = () => {
+      if (rafId !== 0) cancelAnimationFrame(rafId);
+      rafId = 0;
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) startLoop();
+        else stopLoop();
+      },
+      { rootMargin: '120px 0px' }
+    );
+    observer.observe(parent);
+
+    const onVisibilityChange = () => {
+      if (document.hidden) stopLoop();
+      else startLoop();
+    };
+    document.addEventListener('visibilitychange', onVisibilityChange);
 
     return () => {
-      cancelAnimationFrame(rafId);
+      stopLoop();
+      observer.disconnect();
       ro.disconnect();
+      document.removeEventListener('visibilitychange', onVisibilityChange);
       window.removeEventListener('pointermove', onPointerMove);
     };
-  }, [draw]);
+  }, []);
 
   return canvasRef;
 }
