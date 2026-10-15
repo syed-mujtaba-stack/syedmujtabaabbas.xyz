@@ -94,7 +94,7 @@ export const PORTFOLIO_DATA = {
   profile: {
     name: 'Syed Mujtaba Abbas',
     shortName: 'Mujtaba Abbas',
-    monogram: 'SMA',
+    monogram: 'M.J',
     title: 'Full-Stack Developer · Agentic AI Developer · DevOps & Cloud Engineer',
     location: 'Karachi, Pakistan',
     timezone: 'PKT / UTC+5',

@@ -48,13 +48,13 @@ export const LoadingSequence: React.FC<LoadingSequenceProps> = ({ onComplete }) 
       <div className="portfolio-loader__grid" aria-hidden="true" />
 
       <header className="portfolio-loader__header">
-        <span className="portfolio-loader__wordmark">SMA<span>/</span></span>
+        <span className="portfolio-loader__wordmark">M.J<span>_SYED /</span></span>
         <span className="portfolio-loader__location">INDEPENDENT ENGINEER · KARACHI</span>
       </header>
 
       <main className="portfolio-loader__center">
         <div className="portfolio-loader__monogram" aria-hidden="true">
-          <span>SM</span>
+          <span>M.J</span>
           <i />
         </div>
         <p className="portfolio-loader__eyebrow">SELECTED DIGITAL WORK · 2026</p>

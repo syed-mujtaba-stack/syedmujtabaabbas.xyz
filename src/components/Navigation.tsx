@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Menu, X, ArrowUpRight, Command, FileText, Gift, Bot } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { BrandMark } from './BrandMark';
 
 const NAV_ITEMS = [
   { id: 'projects', label: 'Work', href: '#projects' },
@@ -88,9 +89,7 @@ export const Navigation: React.FC<NavigationProps> = ({
           className="group flex items-center gap-3 focus:outline-none"
           aria-label="Syed Mujtaba Abbas — Home"
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/15 bg-[#121215] text-xs font-semibold tracking-wider text-white transition-all group-hover:border-white/40 group-hover:bg-[#1A1A1E]">
-            {PORTFOLIO_DATA.profile.monogram}
-          </div>
+          <BrandMark className="h-9 w-9 shrink-0" />
           <div className="flex flex-col">
             <span className="text-sm font-semibold tracking-tight text-white">
               {PORTFOLIO_DATA.profile.name}

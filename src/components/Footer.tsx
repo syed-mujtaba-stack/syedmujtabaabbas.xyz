@@ -17,6 +17,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { PORTFOLIO_DATA, PortfolioProject } from '../data/portfolioData';
+import { BrandMark } from './BrandMark';
 
 interface FooterProps {
   onOpenOffersPopup?: () => void;
@@ -127,9 +128,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Column 1 (4 cols): Brand Identity, Live Status & Direct Contact */}
           <div className="lg:col-span-4 space-y-5">
             <div className="flex items-center gap-3.5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-[#131318] font-display text-sm font-bold text-white">
-                {profile.monogram}
-              </div>
+              <BrandMark className="h-10 w-10 shrink-0" />
               <div>
                 <div className="font-display text-base font-bold text-white">
                   {profile.name}

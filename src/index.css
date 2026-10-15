@@ -51,6 +51,22 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
+.brand-mark {
+  display: block;
+  flex: none;
+}
+
+.brand-mark__sweep {
+  stroke-dasharray: 8 20;
+  animation: brand-mark-sweep 2.4s ease-in-out infinite;
+}
+
+@keyframes brand-mark-sweep {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
 /* Clean Human-Crafted Silver/Platinum Gradient Text */
 .text-gold-metallic,
 .text-gold-shimmer,
