@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+  <url>
+    <loc>https://www.syedmujtabaabbas.xyz/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/portraits/mujtaba-executive-studio.png</image:loc>
+      <image:title>Syed Mujtaba Abbas — Full-Stack &amp; Agentic AI Engineer (Executive Studio Portrait)</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/portraits/mujtaba-ai-architect.png</image:loc>
+      <image:title>Syed Mujtaba Abbas — AI Systems Architect in Karachi, Pakistan</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/portraits/mujtaba-keynote-speaker.png</image:loc>
+      <image:title>Syed Mujtaba Abbas — Tech Keynote &amp; Founder of AlphaMind &amp; AlphaTech AI</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/portraits/mujtaba-founder-casual.png</image:loc>
+      <image:title>Syed Mujtaba Abbas — Independent Software Engineer &amp; Consultant</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/projects/quantumbyte-preview.png</image:loc>
+      <image:title>QuantumByte Technologies — Next.js &amp; Sanity CMS E-Commerce Store by Syed Mujtaba Abbas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/projects/edugenius-preview.png</image:loc>
+      <image:title>EduGenius — AI Learning Co-Pilot by Syed Mujtaba Abbas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/projects/setupci-preview.png</image:loc>
+      <image:title>SetupCI — Published Python CLI Package on PyPI by Syed Mujtaba Abbas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/projects/karachigum-preview.png</image:loc>
+      <image:title>KarachiGum — Global B2B Export Web Platform by Syed Mujtaba Abbas</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.syedmujtabaabbas.xyz/#all-projects</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/projects/festive-preview.png</image:loc>
+      <image:title>Festive Occasions Dubai — Luxury Event Platform by Syed Mujtaba Abbas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/projects/fujifenix-preview.png</image:loc>
+      <image:title>Fuji Fenix Elevator — Next.js &amp; Sanity CMS Platform by Syed Mujtaba Abbas</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/projects/norvia-preview.png</image:loc>
+      <image:title>Norvia Tech &amp; Digital Services — Next.js 16 &amp; Sanity CMS Store</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/projects/whatsapp-preview.png</image:loc>
+      <image:title>BotFlow — Multi-Tenant WhatsApp AI Agent Platform</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/projects/leadshunter-preview.png</image:loc>
+      <image:title>LeadHunter v2 — Autonomous Google Maps B2B Lead Discovery Agent</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/projects/mjfte-preview.png</image:loc>
+      <image:title>MJ FTE — Windows Disk Cleaner &amp; Python CLI Agent</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/projects/gemcode-preview.png</image:loc>
+      <image:title>GemCode — 11-in-1 Gemini AI Code Editor &amp; IDE</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/projects/physical-ai-preview.png</image:loc>
+      <image:title>Physical AI &amp; Humanoid Robotics Interactive Platform</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.syedmujtabaabbas.xyz/projects/security-preview.png</image:loc>
+      <image:title>Edgeway Security Inc. — Cybersecurity Command Interface</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.syedmujtabaabbas.xyz/#projects</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.syedmujtabaabbas.xyz/#lab</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.syedmujtabaabbas.xyz/#about</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.syedmujtabaabbas.xyz/#skills</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.syedmujtabaabbas.xyz/#agentic-ai</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.syedmujtabaabbas.xyz/#experience</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.syedmujtabaabbas.xyz/#services</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.syedmujtabaabbas.xyz/#faq</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.syedmujtabaabbas.xyz/#contact</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>

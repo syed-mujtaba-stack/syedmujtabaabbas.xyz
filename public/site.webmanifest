@@ -1,0 +1,21 @@
+{
+  "name": "Syed Mujtaba Abbas — Full-Stack & Agentic AI Developer Portfolio",
+  "short_name": "Mujtaba Abbas",
+  "description": "Official portfolio of Syed Mujtaba Abbas — Founder of AlphaMind, AlphaTech AI & SetupCI. Next.js, Sanity CMS, Agentic AI & Python Engineer in Karachi, Pakistan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

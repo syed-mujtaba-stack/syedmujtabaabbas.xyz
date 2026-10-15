@@ -1,0 +1,50 @@
+# Syed Mujtaba Abbas — Official Developer Portfolio & Full-Spectrum Tech Keyword Index (llms.txt)
+
+> Syed Mujtaba Abbas is an AI-Focused Full-Stack Developer, Agentic AI Engineer, DevOps & Cloud Architect, and Founder of AlphaMind, AlphaTech AI, and SetupCI, based in Karachi, Pakistan (PKT / UTC+5) serving clients across the USA, UK, UAE (Dubai), Saudi Arabia, Europe, and Pakistan.
+
+- Canonical Website: https://www.syedmujtabaabbas.xyz/
+- Complete Project Archive (25 Systems): https://www.syedmujtabaabbas.xyz/#all-projects
+- Interactive Engineering Lab: https://www.syedmujtabaabbas.xyz/#lab
+- Tech Keyword Matrix & FAQ: https://www.syedmujtabaabbas.xyz/#faq
+- GitHub: https://github.com/syed-mujtaba-stack
+- LinkedIn: https://www.linkedin.com/in/creative-mujtaba
+- X (Twitter): https://x.com/mujtaba_ai
+- PyPI (SetupCI): https://pypi.org/project/setupci/
+- Direct Email: abbasmujtaba125@gmail.com
+- WhatsApp & Phone: +92 346 0630802 (https://wa.me/923460630802)
+
+## 8 Core Technology Specialization Domains & High-Intent Search Keywords
+1. **Next.js 16, React 19 & Frontend Architecture**: Next.js App Router, Server Components, SSR/ISR, TypeScript, Tailwind CSS v4, GSAP, Framer Motion, Three.js / WebGL 60fps Canvas, Core Web Vitals & Technical SEO.
+2. **Sanity Headless CMS & Composable E-Commerce**: Sanity Studio v3, GROQ Queries, Multi-Currency Storefronts, Custom Cart & Checkout, B2B Export Portals, Product Catalog Management.
+3. **Agentic AI, OpenAI / Gemini SDK & RAG Systems**: OpenAI Agents SDK, Google Gemini API, OpenRouter Multi-Model Routing, Retrieval-Augmented Generation (RAG), Realtime Voice Call AI Agents, Autonomous Digital FTEs.
+4. **WhatsApp Cloud API & Conversational CRM Automation**: Meta WhatsApp Business API Webhooks, 24/7 Bilingual (English + Urdu/Roman Urdu) Sales & Support Bots, Multi-Tenant Bot Builders, Google Sheets CRM Sync.
+5. **Playwright Browser Automation & B2B Lead Generation**: Headless Chromium Crawlers, Google Maps B2B Lead Scraper, Website Email & Phone Extractor, Automated Outbound Pipelines.
+6. **Python Backend, FastAPI, Django & PyPI CLI Tooling**: FastAPI Microservices, Django REST Framework, PostgreSQL/Supabase, Published PyPI Packages (`pip install setupci`), Windows System CLI Utilities (`MJ FTE`), FFmpeg + yt-dlp Video Pipelines.
+7. **Cloud DevOps, Docker, CI/CD & Cybersecurity UI**: GitHub Actions Workflows, Docker Containers, Vercel & Firebase Edge Hosting, Enterprise Security Command Dashboards.
+8. **React Native Mobile Apps, EdTech AI & Humanoid Robotics**: React Native & Expo Cross-Platform Mobile Apps, AI Quiz & Study Copilots (`EduGenius`, `StudEdu`), Physical AI & Embodied Humanoid Robotics Platforms.
+
+## Present Leadership & Active Engineering Roles
+1. **Independent Tech Consultant** — Full-Stack & AI Developer (Jan 2024 — Present)
+2. **Founder — AlphaMind** — AI Product Studio & Agentic Research (2025 — Present)
+3. **Founder — AlphaTech AI** — AI Automation & Full-Stack Software Solutions (2025 — Present)
+4. **Founder & Creator — SetupCI & MJ FTE** — Published Python CLI Maintainer on PyPI (2025 — Present)
+
+## Special Engineering Offers & Packages
+1. **Next.js 16 + Sanity CMS Full E-Commerce Store**: $149 USD / Rs. 42,000 PKR (57% OFF, Promo Code: QUANTUM-149, 10–14 Days Delivery)
+2. **24/7 Autonomous WhatsApp AI Agent + CRM Sync**: $99 USD / Rs. 28,000 PKR (58% OFF, Promo Code: BOTFLOW-99, 7–10 Days Delivery)
+3. **High-Converting Business Website + AI Chat Widget**: $79 USD / Rs. 22,000 PKR (56% OFF, Promo Code: WEB-LAUNCH-79, 5–7 Days Delivery)
+4. **Autonomous B2B LeadHunter Bot + Google Sheets Sync**: $69 USD / Rs. 19,500 PKR (57% OFF, Promo Code: LEADS-69, 4–6 Days Delivery)
+
+## Flagship & Shipped Production Systems (25 Verified Projects)
+- **QuantumByte Technologies** (https://www.quantumbytetechnologies.shop/): Next.js + Sanity CMS hardware e-commerce store and enterprise IT solutions hub.
+- **EduGenius** (https://mj-edugenius.vercel.app/): AI-powered educational co-pilot, chapter summarizer, and quiz generator.
+- **SetupCI** (https://setupci.vercel.app/ | `pip install setupci`): Published Python CLI tool on PyPI for instant project scaffolding and CI setup.
+- **KarachiGum** (https://www.karachigum.com/): Global B2B industrial guar gum export web platform and Django/Next.js admin suite.
+- **Festive Occasions Dubai** (https://www.festiveoccasions.ae): Luxury holiday and event decoration platform in Dubai, UAE.
+- **Fuji Fenix Elevator** (https://fujifenix.com): Multi-page industrial elevator platform with Sanity CMS backend and admin app.
+- **Norvia Tech & Digital Services** (https://norviaitservices.site): Next.js 16 + Sanity CMS tech accessories store and digital agency hub.
+- **BotFlow — WhatsApp AI Agent Platform** (https://whatsappbotbuilder-two.vercel.app): Multi-tenant WhatsApp Cloud API conversational AI agent builder.
+- **MJ FTE** (https://mjfte.vercel.app/): Safety-first Windows disk cleaner, duplicate scanner, and Python CLI agent.
+- **LeadHunter v2**: 24/7 autonomous Playwright Google Maps B2B lead discovery, website email crawler, and Google Sheets sync pipeline.
+- **ClipCompress**: Next.js 16 + FastAPI + yt-dlp + FFmpeg multi-platform video downloader and H.264/AAC compression suite.
+- **Additional Shipped Systems**: Ayesha Fashion Style (https://www.ayeshafashionstyle.shop/), Edgeway Security Inc. (https://security-dark-ui.vercel.app), StudEdu (https://studedu-ai.web.app/), Khizar Luxury Market (https://khizar-luxury-market.vercel.app), Physical AI & Humanoid Robotics (https://physical-ai-nine.vercel.app/), GemCode 11-in-1 Gemini IDE (https://gemcode.vercel.app), JARVIS Voice AI (https://j-a-r-v-i-s-mujtaba.vercel.app/), FastCV PDF Resume Builder (https://fastcv-beta.vercel.app/), Beacon SkyCast Weather (https://skycast-vert-two.vercel.app/), CodeMentor AI (https://mentor-ai-pi.vercel.app), Agentica, Personal AI Employee, AIDev CLI, and AIZA AI.

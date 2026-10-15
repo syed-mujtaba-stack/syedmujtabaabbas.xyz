@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-obsidian: #050505;
+    --bg-charcoal: #0d0d0f;
+    --bg-elevated: #141417;
+    --accent-primary: #f4f4f5;
+    --accent-secondary: #a1a1aa;
+    --text-primary: #fafafa;
+    --text-muted: #8e8e93;
+    --border-hairline: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.22);
+  }
+
+  html {
+    background-color: #050505;
+    color: #fafafa;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: #050505;
+    color: #fafafa;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+  }
+}
+
+/* Typography Families */
+.font-display {
+  font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-editorial {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.font-mono-tech {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Clean Human-Crafted Silver/Platinum Gradient Text */
+.text-gold-metallic,
+.text-gold-shimmer,
+.text-platinum {
+  background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 50%, #71717a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 3D Perspective Stage Utilities */
+.perspective-stage {
+  perspective: 1400px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Clean Matte Black & Dark Gray Surface Card (Linear / Vercel / Raycast style) */
+.surface-obsidian-card,
+.surface-dark-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(20, 20, 23, 0.88) 0%, rgba(10, 10, 12, 0.94) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow:
+    0 20px 50px -15px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease,
+    box-shadow 0.35s ease;
+}
+
+.surface-obsidian-card:hover,
+.surface-dark-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 28px 65px -15px rgba(0, 0, 0, 0.95),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.16);
+}
+
+/* Infinite Smooth Marquee */
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-infinite {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 38s linear infinite;
+}
+
+.animate-marquee-infinite:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Minimal Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #52525b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

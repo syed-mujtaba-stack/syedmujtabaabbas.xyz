@@ -1,0 +1,35 @@
+# robots.txt for https://www.syedmujtabaabbas.xyz/
+# World-Class Full-Stack, Agentic AI & Sanity CMS Portfolio — Syed Mujtaba Abbas
+
+User-agent: *
+Allow: /
+
+# Explicitly allow major Search Engine & AI Search Crawlers (Google, Bing, ChatGPT, Perplexity, Claude)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /portraits/
+Allow: /projects/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.syedmujtabaabbas.xyz/sitemap.xml
+Host: https://www.syedmujtabaabbas.xyz
+# AI / LLM Structured Index: https://www.syedmujtabaabbas.xyz/llms.txt
