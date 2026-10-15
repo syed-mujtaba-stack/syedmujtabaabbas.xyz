@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import {
   ArrowUpRight,
   Check,
@@ -25,7 +26,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
   const [service, setService] = useState(services[0].title);
   const [timezone, setTimezone] = useState('');
   const [message, setMessage] = useState('');
-  const [submittedState, setSubmittedState] = useState<'idle' | 'mailto-opened' | 'copied'>('idle');
+  const [submittedState, setSubmittedState] = useState<
+    'idle' | 'sending' | 'sent' | 'error' | 'mailto-opened' | 'copied'
+  >('idle');
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   useEffect(() => {
@@ -64,13 +67,48 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
       `${name || ''}`,
     ].join('\n');
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const mailtoUrl = `mailto:${contact.email}?subject=${encodeURIComponent(
-      buildComposedSubject()
-    )}&body=${encodeURIComponent(buildComposedBody())}`;
-    window.location.href = mailtoUrl;
-    setSubmittedState('mailto-opened');
+
+    const emailJsEnv = (
+      import.meta as ImportMeta & { env: Record<string, string | undefined> }
+    ).env;
+    const {
+      VITE_EMAILJS_SERVICE_ID,
+      VITE_EMAILJS_TEMPLATE_ID,
+      VITE_EMAILJS_PUBLIC_KEY,
+    } = emailJsEnv;
+
+    if (!VITE_EMAILJS_SERVICE_ID || !VITE_EMAILJS_TEMPLATE_ID || !VITE_EMAILJS_PUBLIC_KEY) {
+      const mailtoUrl = `mailto:${contact.email}?subject=${encodeURIComponent(
+        buildComposedSubject()
+      )}&body=${encodeURIComponent(buildComposedBody())}`;
+      window.location.href = mailtoUrl;
+      setSubmittedState('mailto-opened');
+      return;
+    }
+
+    setSubmittedState('sending');
+    try {
+      await emailjs.send(
+        VITE_EMAILJS_SERVICE_ID,
+        VITE_EMAILJS_TEMPLATE_ID,
+        {
+          to_email: contact.email,
+          from_name: name,
+          from_email: email,
+          reply_to: email,
+          service,
+          timezone: timezone || 'Not specified',
+          subject: buildComposedSubject(),
+          message: buildComposedBody(),
+        },
+        { publicKey: VITE_EMAILJS_PUBLIC_KEY }
+      );
+      setSubmittedState('sent');
+    } catch {
+      setSubmittedState('error');
+    }
   };
 
   const handleCopyBrief = async () => {
@@ -265,7 +303,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
                 Send a Project Brief
               </h3>
               <p className="text-xs text-zinc-400 mt-1">
-                Opens your email client addressed to {contact.email} or dispatches directly to WhatsApp.
+                Sends your project brief directly to {contact.email}. WhatsApp is also available.
               </p>
             </div>
 
@@ -372,10 +410,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-xs font-semibold text-black hover:bg-zinc-200 transition-colors cursor-pointer"
+                  disabled={submittedState === 'sending'}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-xs font-semibold text-black hover:bg-zinc-200 transition-colors cursor-pointer disabled:cursor-wait disabled:opacity-60"
                 >
                   <Send className="h-3.5 w-3.5" />
-                  <span>Send via Email</span>
+                  <span>{submittedState === 'sending' ? 'Sending...' : 'Send via Email'}</span>
                 </button>
 
                 <button
@@ -402,9 +441,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ preselectedServi
                   role="status"
                   className="mt-4 rounded-xl border border-white/15 bg-[#141419] p-4 text-xs text-zinc-200"
                 >
-                  {submittedState === 'mailto-opened'
-                    ? `Email composer opened for ${contact.email}.`
-                    : `Formatted brief copied to clipboard!`}
+                  {submittedState === 'sending'
+                    ? 'Sending your project brief...'
+                    : submittedState === 'sent'
+                      ? `Your project brief was sent to ${contact.email}.`
+                      : submittedState === 'error'
+                        ? 'Email could not be sent. Please try again or contact me via WhatsApp.'
+                        : submittedState === 'mailto-opened'
+                          ? `EmailJS is not configured yet. Your email app was opened for ${contact.email}.`
+                          : 'Formatted brief copied to clipboard!'}
                 </div>
               )}
             </form>

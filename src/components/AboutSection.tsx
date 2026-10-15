@@ -1,30 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Cpu, Layers, Terminal } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 import { AboutConstellationBg } from './SectionBackgrounds';
 
-const ABOUT_PORTRAITS = [
-  {
-    src: '/portraits/mujtaba-ai-architect.png',
-    title: 'Systems & AI Engineering Lab',
-    subtitle: 'Full-Stack, Agentic AI & Cloud Infrastructure',
-  },
-  {
-    src: '/portraits/mujtaba-founder-casual.png',
-    title: 'Independent Technical Consultant',
-    subtitle: 'End-to-End Architecture & Product Delivery',
-  },
-  {
-    src: '/portraits/mujtaba-keynote-speaker.png',
-    title: 'Executive Engineering Profile',
-    subtitle: 'B.S. in Robotics · Superior University Karachi',
-  },
-];
-
 export const AboutSection: React.FC = () => {
-  const { about, profile } = PORTFOLIO_DATA;
-  const [selectedPhoto, setSelectedPhoto] = useState(0);
+  const { about } = PORTFOLIO_DATA;
 
   return (
     <section
@@ -36,9 +17,7 @@ export const AboutSection: React.FC = () => {
       <AboutConstellationBg />
 
       <div className="relative z-10 mx-auto max-w-[1320px] px-5 sm:px-8">
-        {/* Top Two-Column Editorial Split: Left Narrative (7 cols) + Right Studio Portrait Gallery (5 cols) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
-          <div className="lg:col-span-7 space-y-5">
+        <div className="mb-16 max-w-4xl space-y-5">
             <span className="inline-block rounded-full border border-white/10 bg-[#121216] px-3.5 py-1 text-xs font-medium text-zinc-300">
               About &amp; Engineering Philosophy
             </span>
@@ -79,52 +58,6 @@ export const AboutSection: React.FC = () => {
                 </span>
               </div>
             </div>
-          </div>
-
-          {/* Right 5 Cols: Interactive Professional Portrait Frame + Thumbnails */}
-          <div className="lg:col-span-5">
-            <div className="rounded-2xl border border-white/12 bg-[#0D0D11]/90 p-4 shadow-[0_25px_70px_rgba(0,0,0,0.85)] backdrop-blur-xl">
-              <div className="relative aspect-[4/4.2] w-full overflow-hidden rounded-xl bg-[#08080A]">
-                <img
-                  key={ABOUT_PORTRAITS[selectedPhoto].src}
-                  src={ABOUT_PORTRAITS[selectedPhoto].src}
-                  alt={`${profile.name} — ${ABOUT_PORTRAITS[selectedPhoto].title}`}
-                  className="h-full w-full object-cover object-top transition-transform duration-700 hover:scale-105"
-                />
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#08080A] via-[#08080A]/70 to-transparent" />
-                <div className="absolute bottom-3.5 left-4 right-4">
-                  <p className="text-sm font-semibold text-white">
-                    {ABOUT_PORTRAITS[selectedPhoto].title}
-                  </p>
-                  <p className="text-xs text-zinc-300">
-                    {ABOUT_PORTRAITS[selectedPhoto].subtitle}
-                  </p>
-                </div>
-              </div>
-
-              {/* Thumbnail Switcher */}
-              <div className="mt-3 grid grid-cols-3 gap-2.5">
-                {ABOUT_PORTRAITS.map((item, idx) => (
-                  <button
-                    key={item.src}
-                    type="button"
-                    onClick={() => setSelectedPhoto(idx)}
-                    className={`group relative aspect-[4/3] overflow-hidden rounded-lg border transition-all cursor-pointer ${
-                      selectedPhoto === idx
-                        ? 'border-white ring-1 ring-white/50'
-                        : 'border-white/10 opacity-60 hover:opacity-100'
-                    }`}
-                  >
-                    <img
-                      src={item.src}
-                      alt={item.title}
-                      className="h-full w-full object-cover object-top"
-                    />
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* 3 Core Engineering Pillars in Clean Dark Gray Cards */}
