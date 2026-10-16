@@ -13,6 +13,7 @@ import { InteractiveEngineeringLab } from './components/InteractiveEngineeringLa
 import { AIAgentVisualization } from './components/AIAgentVisualization';
 import { ExperienceTimeline } from './components/ExperienceTimeline';
 import { ServicesSection } from './components/ServicesSection';
+import { ClientReviewsSection } from './components/ClientReviewsSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { CommandPalette } from './components/CommandPalette';
@@ -253,6 +254,7 @@ export function App() {
             setSelectedServiceForInquiry(serviceTitle)
           }
         />
+        <ClientReviewsSection />
         <SEOFAQSection
           onOpenOffersPopup={() => setOffersPopupOpen(true)}
           onOpenAllProjects={openAllProjects}
