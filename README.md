@@ -13,6 +13,12 @@ An Awwwards-inspired, 3D-powered developer portfolio rebuilt for **Syed Mujtaba 
 - **Agentic AI & Automation Showcase (`src/components/AIAgentVisualization.tsx`):** Interactive node-and-connection pipeline simulator with animated gold data-flow pulses, step-by-step execution inspector, and direct links to real AI repositories.
 - **SEO & Discoverability (`index.html`, `public/robots.txt`, `public/sitemap.xml`):** Canonical URL (`https://www.syedmujtabaabbas.xyz/`), Open Graph & Twitter cards, and JSON-LD `Person` + `WebSite` structured data.
 
+## Sitemap
+
+`public/sitemap.xml` lists the canonical homepage and its portrait and project images. The project archive and other `#` sections are views of the same page, not separate sitemap URLs.
+
+When replacing a portrait or project preview, update its `<image:loc>` entry. Keep `<lastmod>` tied to the last significant homepage change, not the build date.
+
 ## Development & Build Commands
 
 ```bash
