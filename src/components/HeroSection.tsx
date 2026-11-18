@@ -126,9 +126,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenDossier }) => {
             {/* Clean Display Headline */}
             <div className="space-y-4">
               <h1 className="font-display text-4xl sm:text-6xl xl:text-[4.25rem] font-bold tracking-[-0.03em] leading-[1.05] text-white">
-                Syed Mujtaba Abbas
+                {profile.name}{' '}
                 <span className="block text-platinum mt-2 text-2xl sm:text-4xl xl:text-[2.65rem] font-semibold">
-                  Building intelligent web products, autonomous AI &amp; cloud systems.
+                  Full-Stack Developer &amp; Agentic AI Engineer
                 </span>
               </h1>
 

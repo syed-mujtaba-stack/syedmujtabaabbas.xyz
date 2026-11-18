@@ -100,7 +100,7 @@ export const PORTFOLIO_DATA = {
     timezone: 'PKT / UTC+5',
     availability: 'Available for Select Full-Stack, Agentic AI & Sanity CMS Projects',
     heroIntro:
-      'I architect and ship production Next.js & Sanity CMS e-commerce platforms, autonomous AI agent workflows (OpenAI Agents SDK, Gemini, Playwright), and developer CLI tools published on PyPI.',
+      'Based in Karachi, Pakistan, I build Next.js storefronts with Sanity CMS, WhatsApp AI chatbots for customer support, and Python APIs with FastAPI and Django.',
     portraitUrl: '/portraits/mujtaba-executive-studio.png',
     originalPhotoUrl: 'https://www.syedmujtabaabbas.xyz/profile.png',
   },
