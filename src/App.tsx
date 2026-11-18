@@ -21,7 +21,7 @@ import { ExecutiveDossierModal } from './components/ExecutiveDossierModal';
 import { MujtabaAICopilot } from './components/MujtabaAICopilot';
 import { SpecialOffersPopupModal } from './components/SpecialOffersPopupModal';
 import { SEOFAQSection } from './components/SEOFAQSection';
-import { updatePageSEO } from './utils/seoManager';
+import { updatePageTitle } from './utils/seoManager';
 import type { PortfolioProject } from './data/portfolioData';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -57,7 +57,7 @@ export function App() {
   }, []);
 
   useEffect(() => {
-    updatePageSEO({
+    return updatePageTitle({
       view: showAllProjectsPage ? 'all-projects' : 'home',
       activeProject: externalProjectForCaseStudy,
     });

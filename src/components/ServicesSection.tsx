@@ -35,9 +35,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               id="services-heading"
               className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white"
             >
-              Practical systems built for{' '}
-              <span className="text-platinum">real-world impact.</span>
+              Full-stack development &amp;{' '}
+              <span className="text-platinum">AI automation</span>
             </h2>
+            <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
+              From headless e-commerce storefronts to WhatsApp Cloud API integrations, I build software around your existing tools and workflows.
+            </p>
           </div>
 
           <a

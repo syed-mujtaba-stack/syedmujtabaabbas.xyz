@@ -399,11 +399,11 @@ export const SEOFAQSection: React.FC<SEOFAQSectionProps> = ({
                 </div>
               </div>
 
-              {/* Right 5 Cols: Indexed Tech Keywords & Capabilities */}
+              {/* Right 5 Cols: Technical Capabilities */}
               <div className="lg:col-span-5 rounded-2xl border border-white/10 bg-[#08080C] p-5 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="font-mono-tech text-[10px] uppercase tracking-wider text-zinc-400">
-                    Specializations &amp; Search Keywords
+                    Technical Specializations
                   </span>
                   <span className="font-mono-tech text-[10px] text-emerald-400">
                     {activeSilo.keywords.length} Core Capabilities
@@ -421,22 +421,6 @@ export const SEOFAQSection: React.FC<SEOFAQSectionProps> = ({
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Crawlable Semantic Directory of All 8 Domains for Search Engine Indexing */}
-          <div className="sr-only" aria-hidden="false">
-            <h3>Complete Technology Keyword &amp; Engineering Specialization Index — Syed Mujtaba Abbas</h3>
-            {TECH_KEYWORD_SILOS.map((silo) => (
-              <article key={silo.id}>
-                <h4>{silo.title} — {silo.headline}</h4>
-                <p>{silo.description}</p>
-                <ul>
-                  {silo.keywords.map((kw) => (
-                    <li key={kw}>{kw} — Syed Mujtaba Abbas</li>
-                  ))}
-                </ul>
-              </article>
-            ))}
           </div>
         </div>
 
