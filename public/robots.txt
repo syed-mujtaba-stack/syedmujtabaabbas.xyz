@@ -30,6 +30,7 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
+# Canonical page and portfolio images
 Sitemap: https://www.syedmujtabaabbas.xyz/sitemap.xml
-Host: https://www.syedmujtabaabbas.xyz
+
 # AI / LLM Structured Index: https://www.syedmujtabaabbas.xyz/llms.txt
